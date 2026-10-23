@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rebschule Tschida & Немецкие селекционные станции | Каталог 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+    --color-bg: #F0F0F0;
+    --color-text: #2C2C2C;
+    --color-text-light: #666666;
+    --color-riesling: #2E5C38;
+    --color-chard: #B8860B;
+    --color-pn: #8B1E3F;
+    --color-border: #E5E5E5;
+    --color-soft: #F9F9F9;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.page {
+    width: 100%;
+    max-width: 210mm;
+    min-height: 297mm;
+    background-color: #FFFFFF;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.page-header {
+    padding: 25px 30px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.page-header.riesling { background-color: var(--color-riesling); }
+.page-header.chard { background-color: var(--color-chard); }
+.page-header.pn { background-color: var(--color-pn); }
+.page-header.summary { background-color: #2C2C2C; }
+
+.brand { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
+.doc-number { font-family: 'Playfair Display', serif; font-size: 1rem; font-style: italic; }
+
+.page-content {
+    padding: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.section-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+.section-title.riesling { color: var(--color-riesling); border-bottom: 2px solid var(--color-riesling); }
+.section-title.chard { color: var(--color-chard); border-bottom: 2px solid var(--color-chard); }
+.section-title.pn { color: var(--color-pn); border-bottom: 2px solid var(--color-pn); }
+.section-title.summary { color: #2C2C2C; border-bottom: 2px solid #2C2C2C; }
+
+.intro-text {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    text-align: justify;
+    line-height: 1.7;
+    background: var(--color-soft);
+    padding: 15px;
+    border-left: 4px solid;
+    border-radius: 0 4px 4px 0;
+}
+.intro-text.riesling { border-color: var(--color-riesling); }
+.intro-text.chard { border-color: var(--color-chard); }
+.intro-text.pn { border-color: var(--color-pn); }
+
+.clone-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+.clone-card {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-left: 4px solid;
+    padding: 15px;
+    border-radius: 0 4px 4px 0;
+}
+.clone-card.riesling { border-left-color: var(--color-riesling); }
+.clone-card.chard { border-left-color: var(--color-chard); }
+.clone-card.pn { border-left-color: var(--color-pn); }
+
+.clone-id {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 4px;
+}
+.clone-purpose {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.clone-purpose.riesling { color: var(--color-riesling); }
+.clone-purpose.chard { color: var(--color-chard); }
+.clone-purpose.pn { color: var(--color-pn); }
+.clone-desc { font-size: 0.8rem; color: var(--color-text-light); line-height: 1.5; }
+
+.note-box {
+    background: #FFF8E1;
+    border-left: 4px solid #B8860B;
+    padding: 15px;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.82rem;
+    color: var(--color-text);
+    line-height: 1.6;
+}
+.note-box strong { color: #8B6914; }
+
+.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    margin-top: 10px;
+}
+.summary-table th {
+    text-align: left;
+    padding: 10px;
+    background: var(--color-soft);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.8px;
+    border-bottom: 2px solid var(--color-border);
+}
+.summary-table td {
+    padding: 10px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+    vertical-align: top;
+}
+
+.page-footer {
+    padding: 15px 30px;
+    background-color: var(--color-soft);
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.72rem;
+    color: var(--color-text-light);
+    font-style: italic;
+}
+
+@media (max-width: 800px) {
+    .page { min-height: auto; height: auto; }
+    .clone-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ================= СТРАНИЦА 1: RIESLING ================= -->
+<div class="page">
+    <header class="page-header riesling">
+        <div class="brand">Rebschule Tschida / Немецкие селекционные станции</div>
+        <div class="doc-number">Каталог клонов 2026 · Riesling</div>
+    </header>
+
+    <div class="page-content">
+        <div class="intro-text riesling">
+            Питомник <strong>Rebschule Tschida</strong> (Апетлон, Бургенланд, Австрия) специализируется на сортах, адаптированных к континентальному климату и известняковым почвам Лайтагебирге. Для Рислинга (Weißer Riesling / Rheinriesling) питомник опирается на проверенные временем клоны немецких селекционных станций <strong>Geisenheim (Gm)</strong> и <strong>Freiburg (FR)</strong>, которые являются стандартом для австрийского и немецкого виноградарства.
+        </div>
+
+        <h2 class="section-title riesling">Рекомендуемые клоны Рислинга</h2>
+        <div class="clone-grid">
+            <div class="clone-card riesling">
+                <div class="clone-id">Gm 198</div>
+                <div class="clone-purpose riesling">Классический стандарт (Geisenheim)</div>
+                <div class="clone-desc">Самый распространенный клон в Германии и Австрии. Обладает средней силой роста и сбалансированной урожайностью. Дает вина с классическим сортовым ароматом, отличной структурой и высоким потенциалом выдержки. Надежный выбор для большинства терруаров.</div>
+            </div>
+            <div class="clone-card riesling">
+                <div class="clone-id">FR 334</div>
+                <div class="clone-purpose riesling">Устойчивость к гнилям (Freiburg)</div>
+                <div class="clone-desc">Селекция института Фрайбурга. Главная особенность — значительно более рыхлая гроздь по сравнению с Gm 198. Это обеспечивает лучшую аэрацию и отличную естественную устойчивость к серой гнили (Botrytis cinerea), что критично для влажных осенних условий.</div>
+            </div>
+            <div class="clone-card riesling">
+                <div class="clone-id">Gm 239</div>
+                <div class="clone-purpose riesling">Высокая урожайность</div>
+                <div class="clone-desc">Отличается более высокой силой роста и урожайностью по сравнению с Gm 198. Требует строгого контроля нагрузки и нормировки урожая, чтобы избежать разбавления экстракта и потери сортовой типичности.</div>
+            </div>
+            <div class="clone-card riesling">
+                <div class="clone-id">FR 534</div>
+                <div class="clone-purpose riesling">Позднее созревание / Сладкие вина</div>
+                <div class="clone-desc">Клон с исключительно высоким удержанием кислотности и более поздним сроком созревания. Идеален для производства вин позднего сбора (Spätlese, Auslese) с высокой потенциальной сладостью и свежей кислотностью.</div>
+            </div>
+        </div>
+
+        <h2 class="section-title riesling">Рекомендуемые подвои для Рислинга</h2>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>Подвой</th>
+                    <th>Тип почвы</th>
+                    <th>Особенности связки с Рислингом</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>SO4</strong></td>
+                    <td>Глубокие, умеренно плодородные</td>
+                    <td>Классический выбор. Обеспечивает достаточную вегетативную силу для компенсации умеренной силы роста самого Рислинга.</td>
+                </tr>
+                <tr>
+                    <td><strong>5BB (Kober)</strong></td>
+                    <td>Тяжелые, глинистые, влажные</td>
+                    <td>Хорошо переносит переувлажнение. Придает высокую силу роста, требует контроля нагрузки.</td>
+                </tr>
+                <tr>
+                    <td><strong>125AA</strong></td>
+                    <td>Бедные, каменистые, сухие</td>
+                    <td>Отличная адаптация к засушливым условиям и умеренному содержанию извести. Сдерживает избыточный рост.</td>
+                </tr>
+                <tr>
+                    <td><strong>Fercal</strong></td>
+                    <td>Меловые, высокоизвестковые</td>
+                    <td>Используется точечно на участках с экстремальным содержанием активной извести (>30%), где другие подвои страдают от хлороза.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note-box">
+            <strong>⚠ Важное примечание:</strong> Рислинг чувствителен к дефициту магния. При использовании подвоя <strong>Fercal</strong> на почвах с высоким содержанием калия риск дефицита магния многократно возрастает. Требуется строгий контроль фертигации.
+        </div>
+    </div>
+
+    <footer class="page-footer">
+        <div>Данные основаны на каталогах Rebschule Tschida, Geisenheim и Freiburg. Требуется анализ почвы.</div>
+        <div>www.rebschule-tschida.com</div>
+    </footer>
+</div>
+
+<!-- ================= СТРАНИЦА 2: CHARDONNAY ================= -->
+<div class="page">
+    <header class="page-header chard">
+        <div class="brand">Rebschule Tschida (Австрия)</div>
+        <div class="doc-number">Каталог клонов 2026 · Chardonnay (Morillon)</div>
+    </header>
+
+    <div class="page-content">
+        <div class="intro-text chard">
+            В Австрии Шардоне традиционно называют <strong>Morillon</strong>. Питомник <strong>Rebschule Tschida</strong> предлагает широкий ассортимент клонов, включая как классические французские «дижонские» клоны, так и собственные австрийские селекционные формы, адаптированные к континентальному климату Бургенланда и известнякам Лайтагебирге.
+        </div>
+
+        <h2 class="section-title chard">Официальный ассортимент клонов Tschida</h2>
+        <div class="clone-grid">
+            <div class="clone-card chard">
+                <div class="clone-id">95</div>
+                <div class="clone-purpose chard">Тихие премиальные вина</div>
+                <div class="clone-desc">Мелкая ягода, низкая урожайность. Обеспечивает высокую концентрацию ароматов, минеральность и отличную структуру для выдержки в дубе. Классический выбор для известняковых почв.</div>
+            </div>
+            <div class="clone-card chard">
+                <div class="clone-id">96</div>
+                <div class="clone-purpose chard">Тихие вина (Альтернатива 95)</div>
+                <div class="clone-desc">Похож на 95, но с чуть более высокой урожайностью и чуть меньшей кислотностью. Дает элегантные, округлые вина с хорошим потенциалом старения.</div>
+            </div>
+            <div class="clone-card chard">
+                <div class="clone-id">548</div>
+                <div class="clone-purpose chard">Универсальный / Игристые</div>
+                <div class="clone-desc">Высокое удержание кислотности, чистый ароматический профиль. Хорошая адаптивность. Подходит как для минеральных тихих вин, так и для базовых игристых.</div>
+            </div>
+            <div class="clone-card chard">
+                <div class="clone-id">A11-1</div>
+                <div class="clone-purpose chard">Австрийская селекция</div>
+                <div class="clone-desc">Фирменная селекция Tschida для континентального климата. Хороший баланс сахара и кислоты, стабильная урожайность, отличная адаптация к местным условиям.</div>
+            </div>
+            <div class="clone-card chard">
+                <div class="clone-id">A13-1</div>
+                <div class="clone-purpose chard">Австрийская селекция</div>
+                <div class="clone-desc">Более высокая урожайность при сохранении сортовой типичности. Отлично подходит для базовых вин и игристых на известняковых почвах.</div>
+            </div>
+            <div class="clone-card chard">
+                <div class="clone-id">S** (Selection)</div>
+                <div class="clone-purpose chard">Селекционная форма</div>
+                <div class="clone-desc">Тщательно отобранные питомником черенки без официального номера клона. Прошли строгий фитосанитарный контроль на отсутствие вирусов. Используются для специфических терруаров.</div>
+            </div>
+        </div>
+
+        <h2 class="section-title chard">Рекомендуемые подвои для Шардоне (по Tschida)</h2>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>Подвой</th>
+                    <th>Статус рекомендации</th>
+                    <th>Применение</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Fercal</strong></td>
+                    <td><span style="color:#2E7D32; font-weight:700;">Отлично</span></td>
+                    <td>Для премиальных тихих вин на меловых и высокоизвестковых почвах. Усиливает минеральность.</td>
+                </tr>
+                <tr>
+                    <td><strong>5C (Teleki)</strong></td>
+                    <td><span style="color:#2E7D32; font-weight:700;">Отлично</span></td>
+                    <td>Классический подвой для известковых почв, популярен в Шампани и Австрии.</td>
+                </tr>
+                <tr>
+                    <td><strong>5BB (Kober)</strong></td>
+                    <td><span style="color:#2E7D32; font-weight:700;">Отлично</span></td>
+                    <td>Для тяжелых, глинистых и влажных почв. Придает высокую силу роста.</td>
+                </tr>
+                <tr>
+                    <td><strong>SO4</strong></td>
+                    <td><span style="color:#E65100; font-weight:700;">Хорошо</span></td>
+                    <td>Допустим только на бедных почвах при строгом контроле нагрузки. Риск задержки созревания.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note-box">
+            <strong>⚠ Ограничение по форме посадки:</strong> В каталоге Tschida высокоштамбовые саженцы (длина подвоя 90 см) для Шардоне предлагаются <strong>только на подвое 5BB</strong> (с клоном 95). Комбинация «высокий штамб + Fercal» не рекомендуется из-за риска задержки одревеснения и повышенной чувствительности Fercal к болезням древесины (Esca).
+        </div>
+    </div>
+
+    <footer class="page-footer">
+        <div>Официальные данные каталога Rebschule Tschida (сезон 2025/2026).</div>
+        <div>www.rebschule-tschida.com</div>
+    </footer>
+</div>
+
+<!-- ================= СТРАНИЦА 3: PINOT NOIR ================= -->
+<div class="page">
+    <header class="page-header pn">
+        <div class="brand">Rebschule Tschida / Немецкие селекционные станции</div>
+        <div class="doc-number">Каталог клонов 2026 · Pinot Noir (Blauer Burgunder)</div>
+    </header>
+
+    <div class="page-content">
+        <div class="intro-text pn">
+            Пино-Нуар — сорт, крайне чувствительный к терруару. <strong>Rebschule Tschida</strong> предлагает ограниченный, но тщательно отобранный ассортимент клонов для этого сорта, делая акцент на регулярности и устойчивости к гнилям. Для расширения выбора используются данные немецких селекционных станций (Geisenheim, Freiburg).
+        </div>
+
+        <h2 class="section-title pn">Официальный ассортимент клонов Tschida</h2>
+        <div class="clone-grid">
+            <div class="clone-card pn">
+                <div class="clone-id">115</div>
+                <div class="clone-purpose pn">Тихие вина (Классика)</div>
+                <div class="clone-desc">Классический бургундский клон INRA. Эталон регулярности и элегантности. Низкая–средняя продукция клона идеально балансирует силу роста подвоя, обеспечивая типичный ароматический профиль и хорошую танинную структуру.</div>
+            </div>
+            <div class="clone-card pn">
+                <div class="clone-id">A2107</div>
+                <div class="clone-purpose pn">Устойчивость к гнилям</div>
+                <div class="clone-desc">Австрийско-немецкая селекционная форма. Отличается более рыхлой гроздью по сравнению с классическими бургундскими формами. Рекомендуется для влажных участков Бургенланда с риском осенних дождей.</div>
+            </div>
+        </div>
+
+        <h2 class="section-title pn">Дополнительные рекомендации (Geisenheim / Freiburg)</h2>
+        <div class="clone-grid">
+            <div class="clone-card pn">
+                <div class="clone-id">777 / 828</div>
+                <div class="clone-purpose pn">Тихие премиальные вина</div>
+                <div class="clone-desc">777 дает мелкую ягоду и мощную структуру (урожайность ниже средней). 828 сочетает качество 777 с улучшенной устойчивостью к болезням. На Fercal требуют жесткого контроля нагрузки.</div>
+            </div>
+            <div class="clone-card pn">
+                <div class="clone-id">FR 1801</div>
+                <div class="clone-purpose pn">Влажный климат (Freiburg)</div>
+                <div class="clone-desc">Значительно более рыхлая гроздь, отличная естественная устойчивость к серой гнили. Идеальная пара для Fercal на влажных известняковых участках.</div>
+            </div>
+            <div class="clone-card pn">
+                <div class="clone-id">386 / 521</div>
+                <div class="clone-purpose pn">Игристые вина</div>
+                <div class="clone-desc">Высокая фертильность, рыхлая гроздь, стабильная урожайность. Идеальное соотношение сахара и кислотности для базовых игристых вин.</div>
+            </div>
+            <div class="clone-card pn">
+                <div class="clone-id">667</div>
+                <div class="clone-purpose pn">Ароматическая тонкость</div>
+                <div class="clone-desc">Максимальная элегантность и тонкие танины. Категорически требует жесткой нормировки урожая во избежание перегрузки, особенно на сильнорослых подвоях.</div>
+            </div>
+        </div>
+
+        <h2 class="section-title pn">Рекомендуемые подвои для Пино-Нуар (по Tschida)</h2>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>Подвой</th>
+                    <th>Статус рекомендации</th>
+                    <th>Применение</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Fercal</strong></td>
+                    <td><span style="color:#2E7D32; font-weight:700;">Отлично</span></td>
+                    <td>Для меловых и высокоизвестковых почв. Усиливает минеральность, но требует контроля Mg/K.</td>
+                </tr>
+                <tr>
+                    <td><strong>5BB (Kober)</strong></td>
+                    <td><span style="color:#2E7D32; font-weight:700;">Отлично</span></td>
+                    <td>Для тяжелых, глинистых, переувлажненных почв. Придает высокую силу роста.</td>
+                </tr>
+                <tr>
+                    <td><strong>SO4</strong></td>
+                    <td><span style="color:#C62828; font-weight:700;">С осторожностью</span></td>
+                    <td>Только на бедных почвах. Категорически не рекомендуется с клонами 777 и 667 из-за риска жирования и задержки созревания.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer class="page-footer">
+        <div>Данные основаны на каталоге Rebschule Tschida и рекомендациях Geisenheim/Freiburg.</div>
+        <div>www.rebschule-tschida.com</div>
+    </footer>
+</div>
+
+<!-- ================= СТРАНИЦА 4: СТРАТЕГИЯ И ПРОТОКОЛ ================= -->
+<div class="page">
+    <header class="page-header summary">
+        <div class="brand">Rebschule Tschida / Немецкие селекционные станции</div>
+        <div class="doc-number">Стратегия ассамбляжа и протокол закладки</div>
+    </header>
+
+    <div class="page-content">
+        <h2 class="section-title summary">Рекомендации по формированию посадок (Multiclonal Blocks)</h2>
+        <div class="note-box" style="background: #E8F5E9; border-color: #2E7D32; margin-bottom: 20px;">
+            <strong>Стратегия многоклоновых блоков:</strong> Питомники настоятельно рекомендуют высаживать не один клон, а комбинацию из 2–3 клонов. Это страхует от капризов винтажа, выравнивает нагрузку и усложняет ароматический профиль вина.
+        </div>
+
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>Сорт</th>
+                    <th>Рекомендуемая комбинация клонов</th>
+                    <th>Цель ассамбляжа</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Riesling</strong></td>
+                    <td>Gm 198 + FR 334</td>
+                    <td>Gm 198 дает классическую структуру и объем; FR 334 страхует от серой гнили во влажные годы благодаря рыхлой грозди.</td>
+                </tr>
+                <tr>
+                    <td><strong>Chardonnay</strong></td>
+                    <td>95 + A11-1 (или 548)</td>
+                    <td>95 обеспечивает минеральность и потенциал выдержки; A11-1 дает стабильность и адаптацию к континентальному климату Австрии.</td>
+                </tr>
+                <tr>
+                    <td><strong>Pinot Noir</strong></td>
+                    <td>115 + A2107 (или FR 1801)</td>
+                    <td>115 как элегантная основа; A2107/FR 1801 компенсируют риск гнилей за счет рыхлой грозди, не жертвуя качеством.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="section-title summary" style="margin-top: 30px;">Критические ограничения и протокол</h2>
+        <ul style="margin-left: 20px; font-size: 0.85rem; color: var(--color-text); line-height: 1.7;">
+            <li><strong>Запрет на сильнорослые подвои для мелкоягодных клонов:</strong> Комбинации подвоя <strong>SO4</strong> с клонами Пино-Нуар <strong>777 или 667</strong> на плодородных почвах категорически не допускаются. Это приводит к жированию лозы, загущению полога и фенольной незрелости.</li>
+            <li><strong>Проблема Fercal и магния:</strong> При использовании Fercal избегайте почв с высоким содержанием калия. Fercal активно поглощает K, блокируя усвоение Mg привоем. При появлении межжилкового хлороза применяйте листовые подкормки MgSO₄.</li>
+            <li><strong>Фитосанитария Esca:</strong> Fercal очень чувствителен к комплексу болезней древесины (Esca) и склонен к трещинам коры. Обязательна дезинфекция инструментов при обрезке и отказ от крупных поздних ран.</li>
+            <li><strong>Сроки заказа:</strong> Из-за умеренного производства древесины и импортного характера некоторых подвоев (Tschida импортирует ~30% подвоев, включая Fercal), срок ожидания заказа составляет <strong>12–18 месяцев</strong>.</li>
+            <li><strong>Точечная посадка:</strong> При вариативности почвы используйте Fercal только на участках с активной известью >30%. На остальных участках применяйте 5BB, 5C или 3309C в зависимости от гранулометрии.</li>
+        </ul>
+
+        <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid var(--color-border); font-size: 0.75rem; color: var(--color-text-light); font-style: italic; text-align: center;">
+            Данный каталог составлен на основе официальных данных питомника Rebschule Tschida (Австрия) и селекционных станций Geisenheim / Freiburg (Германия). Окончательный выбор материала должен базироваться на лабораторном анализе почвы (активная известь, K, Mg, гранулометрия) конкретного участка.
+        </div>
+    </div>
+
+    <footer class="page-footer">
+        <div>Официальные стандарты качества · Сертификация фитосанитарного состояния</div>
+        <div>www.rebschule-tschida.com</div>
+    </footer>
+</div>
+
+</body>
+</html>
